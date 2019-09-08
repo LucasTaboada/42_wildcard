@@ -1,4 +1,5 @@
 export const itemType = 
 {
-    Test: 'Test'   
+    Test: 'Test',
+    Search: "Search"   
 };

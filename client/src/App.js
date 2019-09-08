@@ -3,7 +3,7 @@ import './App.scss';
 import { bindActionCreators} from 'redux';
 import  { connect } from 'react-redux';
 import * as testActions from '../src/actions/index';
-import {BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Home from "./containers/home";
 import About from "./containers/about";
 import Nav from "./components/nav";
@@ -25,7 +25,7 @@ class App extends Component{
       <Router>
         <div className= "app">
           <Nav/>
-          <Route exact path="/home" component={Home} />
+          <Route exact path="/" render={(props) => <Home {...props}/> } />
           <Route path="/details/:id" component={Details}/>
           <Route path="/about"  component={About} />
         </div>

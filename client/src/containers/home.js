@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import  _ from 'lodash';
+import { connect } from 'react-redux';
+import { bindActionCreators }  from 'redux';
+import * as homeActions from '../actions/index';
 
-export default class Home extends Component {
+ class Home extends Component {
     constructor(props)
     {
         super(props);
@@ -21,23 +23,19 @@ export default class Home extends Component {
     }
     enter(e)
     {
-        if(e.key == "Enter")
+        if(e.key === "Enter")
         {
-            this.search();
+         this.props.home.makeSearchCall(this.state.title);   
         }
     }
-    async search()
-    {
-        let search = await axios.get(`https://www.omdbapi.com/?s=${this.state.title}&apikey=baef1024`).then(e=>{
-            console.log(e.data.Search);   
-        return(e.data.Search);
-        }).catch(e=>{console.log(e)});
-        return this.setState({
-            movies:search
-        });
+     search()
+    {   
+        this.props.home.makeSearchCall(this.state.title);
     }
    render() {
-        const cards = this.state.movies ? _.map(this.state.movies,(movie, i)=>{
+    const poster = this.state.movie?this.state.movie.Poster:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCPyQE6Cd5uQpKJqWIaWRorf98Y2-DK02LUUmZONKausWb9ghg";
+       console.log(this.props)
+        const cards = this.props.homeState ? _.map(this.props.homeState,(movie, i)=>{
             return(
             <div key={i} className="card" style={{width:"18rem"}}>
             <img src={movie.Poster} className="card-img-top" alt="..."/>
@@ -56,7 +54,6 @@ export default class Home extends Component {
           </div>
           )
         }) : <div>this is going to be replaced</div>;
-        console.log(this.props.match.params);
         return (
             <div className="container">
                 <div className="row">
@@ -75,3 +72,17 @@ export default class Home extends Component {
         )
     }
 }
+
+function mapStateToProps(state)
+{
+    return{
+        homeState:state.Home
+    };
+}
+const mapDispatchToProps = dispatch =>{
+    return {
+        home:bindActionCreators(homeActions,dispatch)
+    };
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Home)

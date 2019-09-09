@@ -6,7 +6,7 @@ export default class Nav extends Component {
       console.log(this.props);
         return (
             <div className="navbar navbar-expand-lg navbar-light bg-light">
-            <Link className="navbar-brand" to="/" >Navbar</Link>
+            <Link className="navbar-brand" to="/" >42_Wildcard</Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>

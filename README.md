@@ -1,13 +1,13 @@
 # 42_Wildcard
 
-![homepage](Methodize.png)
+![homepage](Wildcard.png)
 
 ## Getting Started
 to install locally run this command in your terminal
 ```
-git clone https://github.com/chingu-voyage4/Geckos-Team-19.git
+git clone https://github.com/LucasTaboada/42_wildcard.git
 ```
-once inside the Geckos-Team-19 folder run 
+run this once inside of the base folder and once inside of the client folder 
 ```
 npm install
 ```

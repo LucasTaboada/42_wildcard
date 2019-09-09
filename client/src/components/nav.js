@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 
 export default class Nav extends Component {
     render() {
+      console.log(this.props);
         return (
             <div className="navbar navbar-expand-lg navbar-light bg-light">
             <Link className="navbar-brand" to="/" >Navbar</Link>
@@ -16,10 +17,11 @@ export default class Nav extends Component {
                   <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/about">Link</Link>
+                  <Link className="nav-link" to="/about">about</Link>
                 </li>
               </ul>
-              
+              <Link to="/login" className="btn btn-primary">login</Link>
+              <Link to="/login" className="btn btn-secondary">signup</Link>  
             </div>
           </div>
         )

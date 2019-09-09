@@ -11,7 +11,6 @@ export const getSearchCall = (searchTerm) =>(dispatch)=>{return dispatch(Search(
 
 export const makeSearchCall = (search) => (dispatch)=>
 {
-    console.log(search);
   return apiCall( 'get', `https://www.omdbapi.com/?s=${search}&apikey=baef1024`,)
     .then((res)=>dispatch(Search(res.Search))).catch(err=>dispatch(addError(err.message)))
 }

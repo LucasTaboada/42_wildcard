@@ -8,6 +8,7 @@ import Home from "./containers/home";
 import About from "./containers/about";
 import Nav from "./components/nav";
 import Details from "./containers/details";
+import Login from "./containers/login";
 
 class App extends Component{
   constructor(props)
@@ -24,8 +25,9 @@ class App extends Component{
     return (
       <Router>
         <div className= "app">
-          <Nav/>
+          <Nav {...this.props}/>
           <Route exact path="/" render={(props) => <Home {...props}/> } />
+          <Route path="/login"  component={Login}/>
           <Route path="/details/:id" component={Details}/>
           <Route path="/about"  component={About} />
         </div>

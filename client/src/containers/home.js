@@ -33,12 +33,11 @@ import * as homeActions from '../actions/index';
         this.props.home.makeSearchCall(this.state.title);
     }
    render() {
-    const poster = this.state.movie?this.state.movie.Poster:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCPyQE6Cd5uQpKJqWIaWRorf98Y2-DK02LUUmZONKausWb9ghg";
-       console.log(this.props)
-        const cards = this.props.homeState ? _.map(this.props.homeState,(movie, i)=>{
+    const poster = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCPyQE6Cd5uQpKJqWIaWRorf98Y2-DK02LUUmZONKausWb9ghg";
+        const cards = this.props.homeState[0] ? _.map(this.props.homeState,(movie, i)=>{
             return(
             <div key={i} className="card" style={{width:"18rem"}}>
-            <img src={movie.Poster} className="card-img-top" alt="..."/>
+            <img src={movie.Poster?movie.Poster:poster} className="card-img-top" alt="..."/>
             <div className="card-body">
               <h5 className="card-title">{movie.Title}</h5>
               <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -65,7 +64,6 @@ import * as homeActions from '../actions/index';
                     <div className="row">
                         {cards}
                     </div>
-
                 </div>
                 </div>
             </div>

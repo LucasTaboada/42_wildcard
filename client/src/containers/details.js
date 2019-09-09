@@ -16,7 +16,7 @@ export default class details extends Component {
         this.setState({loading:true})
          const movie = axios.get(`https://www.omdbapi.com/?t=${this.props.match.params.id}&apikey=baef1024`)
         .then((res)=> res.data).then((res)=>
-        {
+        {   console.log(res);
             this.setState({
                 loading:false,
                 movie:res
@@ -27,7 +27,7 @@ export default class details extends Component {
         
     }
     render() {
-
+        console.log(this.props);
         const poster = this.state.movie?this.state.movie.Poster:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCPyQE6Cd5uQpKJqWIaWRorf98Y2-DK02LUUmZONKausWb9ghg";
         return (
             <div className="container">
